@@ -43,6 +43,7 @@ export default function DownloadSection({ onPaymentSuccess, onPaymentError }: Do
               fileId="bitcoin-whitepaper"
               onPaymentSuccess={handlePaymentSuccess}
               onPaymentError={handlePaymentError}
+              usePaymaster={true}
             />
           </div>
         </div>
@@ -82,7 +83,7 @@ export default function DownloadSection({ onPaymentSuccess, onPaymentError }: Do
         )}
 
         <p className="text-xs text-gray-500 dark:text-gray-400 text-center">
-          Powered by x402 payment protocol
+          Powered by x402 payment protocol + Circle Paymaster ⚡
         </p>
       </div>
     </div>
