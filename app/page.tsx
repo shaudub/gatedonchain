@@ -68,6 +68,9 @@ export default function Home() {
                         🔗
                       </a>
                     </h3>
+                    <p className="text-xl font-bold text-green-600 dark:text-green-400 mt-1">
+                      ${link.amount} USDC
+                    </p>
                   </div>
                   <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">
                     {link.id === 1 && "Support my coding with a coffee donation"}
