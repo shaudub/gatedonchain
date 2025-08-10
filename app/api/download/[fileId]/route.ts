@@ -74,21 +74,29 @@ export async function POST(
 
   try {
     const body = await request.json()
-    const { paymentConfirmed, transactionHash } = body
+    console.log('Payment confirmation request:', body)
+    
+    const { paymentConfirmed, transactionHash, userOpHash, gaslessTransaction } = body
 
-    if (paymentConfirmed && transactionHash) {
+    // Accept either transactionHash (regular transaction) or userOpHash (paymaster transaction)
+    const txId = transactionHash || userOpHash
+    
+    if (paymentConfirmed && txId) {
       // In a real implementation, you would:
       // 1. Verify the transaction on-chain
       // 2. Check if payment amount matches
       // 3. Grant access to the file
       
-      console.log(`Payment confirmed for file ${fileId}: ${transactionHash}`)
+      const paymentType = gaslessTransaction ? 'gasless' : 'regular'
+      console.log(`Payment confirmed for file ${fileId}: ${txId} (${paymentType} transaction)`)
       
       // Mark this file as paid
       confirmedPayments.add(fileId)
       
       return NextResponse.json({
         success: true,
+        paymentType,
+        transactionId: txId,
         file: {
           id: file.id,
           name: file.name,
@@ -97,8 +105,16 @@ export async function POST(
       })
     }
 
-    return NextResponse.json({ error: 'Invalid payment confirmation' }, { status: 400 })
+    console.log('Invalid payment confirmation - missing required fields:', body)
+    return NextResponse.json({ 
+      error: 'Invalid payment confirmation - missing paymentConfirmed or transaction ID',
+      received: body 
+    }, { status: 400 })
   } catch (error) {
-    return NextResponse.json({ error: 'Invalid request' }, { status: 400 })
+    console.error('Payment confirmation error:', error)
+    return NextResponse.json({ 
+      error: 'Invalid request', 
+      details: error instanceof Error ? error.message : 'Unknown error' 
+    }, { status: 400 })
   }
 } 

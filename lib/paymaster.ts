@@ -45,32 +45,53 @@ export async function createSmartWallet(
   try {
     const config = getPaymasterConfig()
     
-    // For now, we'll simulate the smart wallet functionality
-    // In a real implementation, you'd use proper ERC-4337 libraries
-    const address = walletClient.account?.address || '0x0000000000000000000000000000000000000000'
+    // Validate wallet client
+    if (!walletClient || !walletClient.account?.address) {
+      throw new Error('Invalid wallet client - no account address found')
+    }
+    
+    const address = walletClient.account.address
+    console.log('🚀 Creating smart wallet for address:', address)
     
     return {
       address,
       sendUserOperation: async (userOp: any) => {
-        // Simplified: For now, just send a regular transaction
-        // In production, this would create and send a proper UserOperation
-        console.log('Sending user operation:', userOp)
-        
-        // Simulate sending transaction through paymaster
-        const txHash = await walletClient.sendTransaction({
-          to: userOp.target,
-          data: userOp.data,
-          value: userOp.value || 0n,
-        })
-        
-        return txHash
+        try {
+          console.log('📤 Sending user operation (simplified):', userOp)
+          
+          // Validate user operation
+          if (!userOp.target || !userOp.data) {
+            throw new Error('Invalid user operation - missing target or data')
+          }
+          
+          // For this demo, we'll send a regular transaction instead of a UserOperation
+          // In production, this would use proper ERC-4337 libraries like @alchemy/aa-core
+          console.log('⚠️  Using simplified transaction instead of UserOperation')
+          
+          const txHash = await walletClient.sendTransaction({
+            to: userOp.target,
+            data: userOp.data,
+            value: userOp.value || 0n,
+          })
+          
+          console.log('✅ Transaction sent successfully:', txHash)
+          return txHash
+        } catch (error) {
+          console.error('❌ User operation failed:', error)
+          throw new Error(`Transaction failed: ${error instanceof Error ? error.message : 'Unknown error'}`)
+        }
       },
       signMessage: async (message: string) => {
-        return await walletClient.signMessage({ message })
+        try {
+          return await walletClient.signMessage({ message })
+        } catch (error) {
+          console.error('❌ Message signing failed:', error)
+          throw new Error(`Message signing failed: ${error instanceof Error ? error.message : 'Unknown error'}`)
+        }
       },
     }
   } catch (error) {
-    console.error('Failed to create smart wallet:', error)
+    console.error('❌ Failed to create smart wallet:', error)
     throw new Error(`Smart wallet creation failed: ${error instanceof Error ? error.message : 'Unknown error'}`)
   }
 }
