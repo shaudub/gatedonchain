@@ -7,21 +7,21 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 const samplePaymentLinks = [
   {
     id: 1,
-    title: "Optimism Grant",
+    title: "Coffee Fund ☕",
     recipientAddress: "0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe",
-    amount: "2,500.00"
+    amount: "5.00"
   },
   {
     id: 2,
-    title: "Freelance Design Work",
-    recipientAddress: "0xa529Fca8E3Ea197Da67FcCe0eE5a1Ba5e3c60284",
-    amount: "750.00"
+    title: "Bitcoin Whitepaper Download 📄",
+    recipientAddress: "0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe",
+    amount: "0.05"
   },
   {
     id: 3,
-    title: "Open Source Contribution",
-    recipientAddress: "0x742d35Cc6634C0532925a3b8D5E43A4a4b9B5c1e",
-    amount: "100.00"
+    title: "Open Source Contribution 🚀",
+    recipientAddress: "0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe",
+    amount: "25.00"
   }
 ]
 
