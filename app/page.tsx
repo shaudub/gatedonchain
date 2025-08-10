@@ -49,38 +49,38 @@ export default function Home() {
           </Button>
         </div>
 
-        {/* Sample payment link cards */}
-        <div className="grid md:grid-cols-3 gap-8">
-          {samplePaymentLinks.map((link) => (
-            <Card key={link.id} className="rounded-xl shadow-lg hover:shadow-xl transition-shadow cursor-pointer">
-              <CardHeader className="pb-3">
-                <CardTitle className="text-xl font-semibold text-gray-800 dark:text-white">
-                  {link.title}
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div>
-                  <p className="text-sm font-medium text-gray-600 dark:text-gray-400 mb-1">
-                    Recipient Address
+        {/* Sample Links Section */}
+        <div className="mb-16">
+          <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-8 text-center">
+            Sample Links
+          </h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            {samplePaymentLinks.map((link) => (
+              <Card key={link.id} className="rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+                <CardContent className="p-6">
+                  <div className="mb-3">
+                    <h3 className="text-lg font-semibold text-gray-800 dark:text-white flex items-center gap-2">
+                      {link.title.replace(' ☕', '').replace(' 📄', '').replace(' 🚀', '')}
+                      <a 
+                        href={link.slug} 
+                        className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 transition-colors"
+                      >
+                        🔗
+                      </a>
+                    </h3>
+                  </div>
+                  <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">
+                    {link.id === 1 && "Support my coding with a coffee donation"}
+                    {link.id === 2 && "Download the original Bitcoin whitepaper"}
+                    {link.id === 3 && "Fund open source blockchain development"}
                   </p>
-                  <p className="text-sm font-mono text-gray-800 dark:text-gray-200 break-all bg-gray-100 dark:bg-gray-800 p-2 rounded-lg">
+                  <p className="text-xs font-mono text-gray-500 dark:text-gray-400 break-all">
                     {link.recipientAddress}
                   </p>
-                </div>
-                <div className="pt-2 mb-4">
-                  <p className="text-2xl font-bold text-green-600 dark:text-green-400">
-                    ${link.amount} USDC
-                  </p>
-                </div>
-                <Button 
-                  className="w-full" 
-                  onClick={() => router.push(link.slug)}
-                >
-                  View Payment Link
-                </Button>
-              </CardContent>
-            </Card>
-          ))}
+                </CardContent>
+              </Card>
+            ))}
+          </div>
         </div>
       </div>
     </main>
