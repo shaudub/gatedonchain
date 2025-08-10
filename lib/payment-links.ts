@@ -169,7 +169,7 @@ export function initializeSampleData() {
       title: "Coffee Fund ☕",
       description: "Help fuel my coding sessions with coffee!",
       amount: "5.00",
-      recipientAddress: "0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe",
+      recipientAddress: "0x390b5956FA3606841598FE887b704407D26e4805",
       customSlug: "coffee-fund"
     })
     
@@ -177,7 +177,7 @@ export function initializeSampleData() {
       title: "Open Source Contribution 🚀",
       description: "Support my open source work on blockchain tools",
       amount: "25.00",
-      recipientAddress: "0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe",
+      recipientAddress: "0x390b5956FA3606841598FE887b704407D26e4805",
       customSlug: "open-source-contribution"
     })
     
@@ -185,7 +185,7 @@ export function initializeSampleData() {
       title: "Bitcoin Whitepaper Download 📄",
       description: "Get the original Bitcoin whitepaper by Satoshi Nakamoto",
       amount: "0.05",
-      recipientAddress: "0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe",
+      recipientAddress: "0x390b5956FA3606841598FE887b704407D26e4805",
       customSlug: "bitcoin-whitepaper"
     })
   }

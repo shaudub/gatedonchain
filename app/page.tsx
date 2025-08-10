@@ -8,21 +8,21 @@ const samplePaymentLinks = [
   {
     id: 1,
     title: "Coffee Fund ☕",
-    recipientAddress: "0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe",
+    recipientAddress: "0x390b5956FA3606841598FE887b704407D26e4805",
     amount: "5.00",
     slug: "/project/coffee-fund"
   },
   {
     id: 2,
     title: "Bitcoin Whitepaper Download 📄",
-    recipientAddress: "0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe",
+    recipientAddress: "0x390b5956FA3606841598FE887b704407D26e4805",
     amount: "0.05",
     slug: "/project/bitcoin-whitepaper"
   },
   {
     id: 3,
     title: "Open Source Contribution 🚀",
-    recipientAddress: "0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe",
+    recipientAddress: "0x390b5956FA3606841598FE887b704407D26e4805",
     amount: "25.00",
     slug: "/project/open-source-contribution"
   }

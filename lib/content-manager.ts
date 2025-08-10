@@ -41,7 +41,7 @@ export const contentRegistry: Record<string, ContentItem> = {
     name: 'Bitcoin: A Peer-to-Peer Electronic Cash System.txt',
     price: '1.00',
     currency: 'USDC',
-    address: '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe',
+    address: '0x390b5956FA3606841598FE887b704407D26e4805',
     description: 'The original Bitcoin whitepaper by Satoshi Nakamoto - A Peer-to-Peer Electronic Cash System',
     requiresPayment: true,
     contentType: 'text/plain',
