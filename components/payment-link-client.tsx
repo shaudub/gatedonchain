@@ -151,7 +151,7 @@ export default function PaymentLinkClient({ paymentLink, onPaymentSuccess, onPay
         </button>
 
         <div className="mt-4 text-xs text-gray-500 dark:text-gray-400 text-center">
-          <p>Make sure you have sufficient USDC balance and ETH for gas fees</p>
+          <p>Make sure you have sufficient USDC balance (gas fees included automatically)</p>
           <p className="mt-1">Transaction will be processed on Base Sepolia testnet</p>
         </div>
       </div>
@@ -161,7 +161,7 @@ export default function PaymentLinkClient({ paymentLink, onPaymentSuccess, onPay
         <h4 className="font-medium text-blue-800 dark:text-blue-200 mb-2">💡 Payment Instructions</h4>
         <ul className="text-sm text-blue-700 dark:text-blue-300 space-y-1">
           <li>• Ensure you have {paymentLink.amount} USDC in your wallet</li>
-          <li>• Keep some ETH for gas fees (usually $1-3)</li>
+          <li>• Gas fees are automatically paid in USDC - no ETH needed!</li>
           <li>• Confirm the transaction in your wallet when prompted</li>
           <li>• Payment confirmation may take 1-2 minutes</li>
         </ul>
