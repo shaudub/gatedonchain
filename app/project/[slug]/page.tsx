@@ -94,7 +94,13 @@ export default function PaymentLinkPage() {
       const data = await response.json()
 
       if (data.success) {
-        setStatus(`✅ Payment successful! ${paymentLink.amount} USDC sent to ${paymentLink.title}`)
+        const txHash = userOpHash || transactionHash
+        const explorerUrl = `https://sepolia.basescan.org/tx/${txHash}`
+        setStatus(
+          `✅ Payment successful! ${paymentLink.amount} USDC sent to ${paymentLink.title}\n` +
+          `🔗 Transaction: ${txHash}\n` +
+          `📋 View on explorer: ${explorerUrl}`
+        )
         // Refresh payment link data to show updated stats
         fetchPaymentLink()
       } else {

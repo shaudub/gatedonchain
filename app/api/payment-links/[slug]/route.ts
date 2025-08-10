@@ -95,6 +95,10 @@ export async function POST(
     })
 
     console.log(`💰 Payment received for "${paymentLink.title}": ${payment.amount} USDC from ${payerAddress}`)
+    console.log(`🔗 Transaction Hash: ${transactionHash || 'N/A'}`)
+    console.log(`⚡ User Op Hash: ${userOpHash || 'N/A'}`)
+    console.log(`🏦 Recipient: ${paymentLink.recipientAddress}`)
+    console.log(`💳 Gasless Transaction: ${gaslessTransaction ? 'Yes' : 'No'}`)
 
     return NextResponse.json({
       success: true,
