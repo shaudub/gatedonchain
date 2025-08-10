@@ -9,19 +9,22 @@ const samplePaymentLinks = [
     id: 1,
     title: "Coffee Fund ☕",
     recipientAddress: "0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe",
-    amount: "5.00"
+    amount: "5.00",
+    slug: "/project/coffee-fund"
   },
   {
     id: 2,
     title: "Bitcoin Whitepaper Download 📄",
     recipientAddress: "0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe",
-    amount: "0.05"
+    amount: "0.05",
+    slug: "/project/bitcoin-whitepaper"
   },
   {
     id: 3,
     title: "Open Source Contribution 🚀",
     recipientAddress: "0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe",
-    amount: "25.00"
+    amount: "25.00",
+    slug: "/project/open-source-contribution"
   }
 ]
 
@@ -49,7 +52,7 @@ export default function Home() {
         {/* Sample payment link cards */}
         <div className="grid md:grid-cols-3 gap-8">
           {samplePaymentLinks.map((link) => (
-            <Card key={link.id} className="rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+            <Card key={link.id} className="rounded-xl shadow-lg hover:shadow-xl transition-shadow cursor-pointer">
               <CardHeader className="pb-3">
                 <CardTitle className="text-xl font-semibold text-gray-800 dark:text-white">
                   {link.title}
@@ -64,11 +67,17 @@ export default function Home() {
                     {link.recipientAddress}
                   </p>
                 </div>
-                <div className="pt-2">
+                <div className="pt-2 mb-4">
                   <p className="text-2xl font-bold text-green-600 dark:text-green-400">
                     ${link.amount} USDC
                   </p>
                 </div>
+                <Button 
+                  className="w-full" 
+                  onClick={() => router.push(link.slug)}
+                >
+                  View Payment Link
+                </Button>
               </CardContent>
             </Card>
           ))}
